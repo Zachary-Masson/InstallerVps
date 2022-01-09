@@ -18,7 +18,10 @@ message() {
 }
 
 nodeJS() {
-
+    curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+    apt install -y nodejs
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [Nodejs] Installer par le programme ($USER)!" >> logs.txt
+    sleep 3
 }
 
 debian() {
@@ -41,10 +44,7 @@ debian() {
     echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_tempData] créer par le programme ($USER)!" >> logs.txt
     cd ./IV_tempData
     message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Création de l'environnement pour le programme effectuer, Installation de nodeJS v16 !"
-    curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-    apt install -y nodejs
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [Nodejs] Installer par le programme ($USER)!" >> logs.txt
-    sleep 3
+    nodeJS
 }
 
 ubuntu() {
