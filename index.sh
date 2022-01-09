@@ -24,7 +24,9 @@ nodeJSInstall() {
     echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [PM2] Installer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
     sleep 3
     npm i --save
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [NPM] Installe les dépendances du panel !" >> /home/InstallerVps/logs.txt
     pm2 start main.js --name IV_panel
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [PM2] Lancement de l'application [http://$(ip -4 addr show eth0 | grep -oP "(?<=inet ).*(?=/)"):7856] !" >> /home/InstallerVps/logs.txt
 }
 
 debian() {
