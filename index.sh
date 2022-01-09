@@ -100,7 +100,7 @@ home() {
             rm -d -r /home/InstallerVps/
             rm IsReady.txt
             home
-        elif [ $choicessss = "start" ]
+        elif [ $choicessss = "sup" ]
         then
             pm2 start IV_panel
             pm2 delete IV_panel
