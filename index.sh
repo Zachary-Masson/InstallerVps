@@ -97,7 +97,6 @@ home() {
             pm2 stop IV_panel
             rm -d -r /home/InstallerVps/
             rm IsReady.txt
-            pm2 start IV_panel
             home
         elif [ $choicessss = "start" ]
         then
