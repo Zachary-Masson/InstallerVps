@@ -105,7 +105,6 @@ home() {
            pm2 stop IV_panel
            home
         else
-        else
             echo "Stop Process"
         fi  
     else
