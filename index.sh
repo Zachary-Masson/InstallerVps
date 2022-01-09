@@ -46,7 +46,7 @@ debian() {
     echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_tempData] créer par le programme ($USER)!" >> logs.txt
     cd ./IV_tempData
     message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Création de l'environnement pour le programme effectuer, Installation de nodeJS v16 !"
-    nodeJS
+    nodeJSInstall
 }
 
 ubuntu() {
