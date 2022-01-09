@@ -26,8 +26,6 @@ debian() {
     message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour effectuer, Installation des dépendances BASIC !"
     apt install screen htop nano
     message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Installation des dépendances BASIC effectuer, Création de l'environnement pour le programme !"
-    screen -dmS InstallerVps
-    screen -r InstallerVps
     adduser InstallerVps root
     cd /home/InstallerVps/
     heure = $(date + %H%M)
