@@ -105,14 +105,14 @@ home() {
         then
             pm2 start IV_panel
 
-        elif [$choicessss = "stop"]
+        elif [ $choicessss = "stop" ]
         then
             pm2 stop IV_panel
 
-        elif [$choicessss = "logs"]
+        elif [ $choicessss = "logs" ]
         then
             cat /home/InstallerVps/logs.txt
-            
+
         else
             echo "Stop Process"
         fi  
