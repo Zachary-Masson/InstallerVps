@@ -14,4 +14,4 @@ function message {
     echo
 }
 
-message()
+message
