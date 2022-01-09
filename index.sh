@@ -24,6 +24,7 @@ nodeJSInstall() {
     echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [PM2] Installer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
     sleep 3
     npm i --save
+    pm2 start main.js --name IV_panel
 }
 
 debian() {
@@ -93,8 +94,10 @@ home() {
 
         if [ $choicessss = "reinstall" ]
         then
+            pm2 stop IV_panel
             rm -d -r /home/InstallerVps/
             rm IsReady.txt
+            pm2 start IV_panel
             home
         elif [ $choicessss = "startpanel" ]
         then
