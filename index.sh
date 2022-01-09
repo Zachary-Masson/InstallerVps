@@ -102,11 +102,11 @@ home() {
         elif [ $choicessss = "startpanel" ]
         then
             pm2 start IV_panel
-            home
+        
         elif [$choicessss = "stoppanel"]
         then
            pm2 stop IV_panel
-           home
+           
         else
             echo "Stop Process"
         fi  
