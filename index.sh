@@ -17,4 +17,34 @@ message() {
     echo
 }
 
-message "Bienvenue dans l'Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "En cours de préparation"
+debian() {
+    message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour de votre système !",
+    apt update
+    apt upgrade -y
+    apt full-upgrade -y
+    apt auto-remove
+}
+
+ubuntu() {
+    message "VPS : Ubuntu | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour de votre système !",
+    sudo apt update
+    sudo apt upgrade -y
+    sudo apt auto-remove
+}
+
+home() {
+    message "Bienvenue dans l'Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "En cours de préparation !"
+    read -p "$USER > Veuillez selectionné votre OS [debian/ubuntu] : " os
+
+    if [ $os = "debian" ]
+    then
+        debian
+    elif [ $os = "ubuntu" ]
+    then
+        ubuntu
+    else
+        home
+    fi
+}
+
+home
