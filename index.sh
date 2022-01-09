@@ -27,26 +27,25 @@ nodeJSInstall() {
 }
 
 debian() {
-    message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour de votre système !"
+    message "VPS : Ubuntu | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour de votre système !"
     apt update
     apt upgrade -y
     apt full-upgrade -y
     apt auto-remove
     sleep 3
-    message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour effectuer, Installation des dépendances BASIC !"
+    message "VPS : Ubuntu | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour effectuer, Installation des dépendances BASIC !"
     apt install screen htop nano curl
     sleep 3
-    message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Installation des dépendances BASIC effectuer, Création de l'environnement pour le programme !"
+    message "VPS : Ubuntu | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Installation des dépendances BASIC effectuer, Création de l'environnement pour le programme !"
     mkdir /home/InstallerVps/
-    cd /home/InstallerVps/
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Environnement en cours d'installation !" >> logs.txt
-    mkdir IV_dataSave
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_dataSave] créer par le programme ($USER)!" >> logs.txt
-    mkdir IV_tempData
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_tempData] créer par le programme ($USER)!" >> logs.txt
-    cd ./IV_tempData
-    message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Création de l'environnement pour le programme effectuer, Installation de nodeJS v16 !"
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Environnement en cours d'installation !" >> /home/InstallerVps/logs.txt
+    mkdir /home/InstallerVps/IV_dataSave
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_dataSave] créer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
+    mkdir /home/InstallerVps/IV_tempData
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_tempData] créer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
+    message "VPS : Ubuntu50 | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Création de l'environnement pour le programme effectuer, Installation de nodeJS v16 !"
     nodeJSInstall
+    echo "ready" >> IsReady.txt
 }
 
 ubuntu() {
@@ -62,9 +61,9 @@ ubuntu() {
     message "VPS : Ubuntu | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Installation des dépendances BASIC effectuer, Création de l'environnement pour le programme !"
     mkdir /home/InstallerVps/
     echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Environnement en cours d'installation !" >> /home/InstallerVps/logs.txt
-    mkdir IV_dataSave
+    mkdir /home/InstallerVps/IV_dataSave
     echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_dataSave] créer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
-    mkdir IV_tempData
+    mkdir /home/InstallerVps/IV_tempData
     echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_tempData] créer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
     message "VPS : Ubuntu50 | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Création de l'environnement pour le programme effectuer, Installation de nodeJS v16 !"
     nodeJSInstall
@@ -77,11 +76,11 @@ home() {
        message "Bienvenue dans l'Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Panel"
         echo " _____________________________________________________________________________"
         echo "|                                                                             |"
-        echo -e "|    - \e[1;34mRe installer\e[0;31m [re_install] \e[0;m                                             |"
+        echo -e "|    - \e[1;34mRe installer\e[0;31m [reinstall] \e[0;m                                             |"
         echo "|                                                                             |"
-        echo -e "|    - \e[1;34mDémarrage du panel [web]\e[0;31m [start_panel]\e[0;m                                 |"
+        echo -e "|    - \e[1;34mDémarrage du panel [web]\e[0;31m [startpanel]\e[0;m                                 |"
         echo "|                                                                             |"
-        echo -e "|    - \e[1;34mArrêt du panel [web]\e[0;31m [stop_panel] \e[0;m                                     |"
+        echo -e "|    - \e[1;34mArrêt du panel [web]\e[0;31m [stoppanel] \e[0;m                                     |"
         echo "|                                                                             |"
         echo "|    -                                                                        |"
         echo "|                                                                             |"
@@ -92,16 +91,16 @@ home() {
         echo
         read -p "$USER > " choice
 
-        if [$choice = "re_install"]
+        if [$choice = "reinstall"]
         then
             rm -d -r /home/InstallerVps/
             rm IsReady.txt
             home
-        elif [$choice = "start_panel"]
+        elif [$choice = "startpanel"]
         then
             pm2 start IV_panel
             home 
-        elif [$choice = "stop_panel"]
+        elif [$choice = "startpanel"]
         then
             pm2 stop IV_panel
             home 
