@@ -28,11 +28,12 @@ debian() {
     message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Installation des dépendances BASIC effectuer, Création de l'environnement pour le programme !"
     mkdir /home/InstallerVps/
     cd /home/InstallerVps/
-    echo "$(date '+ %d/%m/%Y') | $(date '+ %H:%M') > Environnement en cours d'installation !" >> logs.txt
-    # mkdir IV_dataSave
-    # echo "$jour | $heure : Dossier [IV_dataSave] créer par le programme ($USER)!" >> logs.txt
-    # mkdir IV_tempData
-    # echo "$jour | $heure : Dossier [IV_tempData] créer par le programme ($USER)!" >> logs.txt
+    Date = "$(date '+%d/%m/%Y') | $(date '+%H:%M')"
+    echo "$Date > Environnement en cours d'installation !" >> logs.txt
+    mkdir IV_dataSave
+    echo "$Date > Dossier [IV_dataSave] créer par le programme ($USER)!" >> logs.txt
+    mkdir IV_tempData
+    echo "$Date > Dossier [IV_tempData] créer par le programme ($USER)!" >> logs.txt
 }
 
 ubuntu() {
