@@ -18,11 +18,25 @@ message() {
 }
 
 debian() {
-    message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour de votre système !",
+    message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour de votre système !"
     apt update
     apt upgrade -y
     apt full-upgrade -y
     apt auto-remove
+    message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour effectuer, Installation des dépendances BASIC !"
+    apt install screen htop nano
+    message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Installation des dépendances BASIC effectuer, Création de l'environnement pour le programme !"
+    screen -dmS InstallerVps
+    screen -r InstallerVps
+    adduser InstallerVps root
+    cd /home/InstallerVps/
+    heure = $ (date + %H%M)
+    jour = $ (data + %Y%m%d)
+    echo "$jour | $heure : Environnement en cours d'installation !" >> logs.txt
+    mkdir IV_dataSave
+    echo "$jour | $heure : Dossier [IV_dataSave] créer par le programme ($USER)!" >> logs.txt
+    mkdir IV_tempData
+    echo "$jour | $heure : Dossier [IV_tempData] créer par le programme ($USER)!" >> logs.txt
 }
 
 ubuntu() {
