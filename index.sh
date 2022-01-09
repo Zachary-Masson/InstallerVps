@@ -100,15 +100,19 @@ home() {
             rm -d -r /home/InstallerVps/
             rm IsReady.txt
             home
+
         elif [ $choicessss = "start" ]
         then
             pm2 start IV_panel
+
         elif [$choicessss = "stop"]
         then
             pm2 stop IV_panel
+
         elif [$choicessss = "logs"]
         then
             cat /home/InstallerVps/logs.txt
+            
         else
             echo "Stop Process"
         fi  
