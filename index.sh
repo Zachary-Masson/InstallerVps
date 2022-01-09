@@ -30,8 +30,8 @@ debian() {
     screen -r InstallerVps
     adduser InstallerVps root
     cd /home/InstallerVps/
-    heure = $ (date + %H%M)
-    jour = $ (data + %Y%m%d)
+    heure = $(date + %H%M)
+    jour = $(data + %Y%m%d)
     echo "$jour | $heure : Environnement en cours d'installation !" >> logs.txt
     mkdir IV_dataSave
     echo "$jour | $heure : Dossier [IV_dataSave] créer par le programme ($USER)!" >> logs.txt
