@@ -1,4 +1,4 @@
-function message( $t, $message ) {
+message() {
     clear
     echo	" ______                   __             ___    ___                  __  __"
     echo	"/\__  _\                 /\ \__         /\_ \  /\_ \                /\ \/\ \ " 
@@ -11,10 +11,10 @@ function message( $t, $message ) {
     echo	"                                                                                  \/_/         " 
     echo
     echo
-    echo -e "$title"
+    echo -e "$1"
     echo
-    echo -e "$message"
+    echo -e "$2"
     echo
 }
 
-message "Bienvenue dans l'Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "En cours de préparation")
+message "Bienvenue dans l'Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "En cours de préparation"
