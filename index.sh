@@ -20,7 +20,7 @@ message() {
 nodeJS() {
     curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
     apt install -y nodejs
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [Nodejs] Installer par le programme ($USER)!" >> logs.txt
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [Nodejs] Installer par le programme ($USER)!" >> ../logs.txt
     sleep 3
 }
 
