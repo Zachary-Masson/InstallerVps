@@ -1,4 +1,4 @@
-function message($title, $message) {
+function message( $t, $message ) {
     clear
     echo	" ______                   __             ___    ___                  __  __"
     echo	"/\__  _\                 /\ \__         /\_ \  /\_ \                /\ \/\ \ " 
