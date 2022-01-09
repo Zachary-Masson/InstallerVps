@@ -19,14 +19,14 @@ message() {
 
 nodeJSInstall() {
     curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [Nodejs] Installer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [IV] Installation de NodeJs V16 ! | user => ($USER)" >> /home/InstallerVps/logs.txt
     npm i pm2 -g
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [PM2] Installer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [NPM] Installation de 'PM2' ! | user => ($USER)" >> /home/InstallerVps/logs.txt
     sleep 3
     npm i --save
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [NPM] Installe les dépendances du panel !" >> /home/InstallerVps/logs.txt
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [NPM] Installe les dépendances du panel ! | user => ($USER)" >> /home/InstallerVps/logs.txt
     pm2 start main.js --name IV_panel
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [PM2] Lancement de l'application [http://$(ip -4 addr show eth0 | grep -oP "(?<=inet ).*(?=/)"):7856] !" >> /home/InstallerVps/logs.txt
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [PM2] Lancement de l'application LINK : http://$(ip -4 addr show eth0 | grep -oP "(?<=inet ).*(?=/)"):7856 ! | user => ($USER)" >> /home/InstallerVps/logs.txt
 }
 
 debian() {
@@ -41,11 +41,11 @@ debian() {
     sleep 3
     message "VPS : Ubuntu | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Installation des dépendances BASIC effectuer, Création de l'environnement pour le programme !"
     mkdir /home/InstallerVps/
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Environnement en cours d'installation !" >> /home/InstallerVps/logs.txt
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [IV] Environnement en cours d'installation !" >> /home/InstallerVps/logs.txt
     mkdir /home/InstallerVps/IV_dataSave
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_dataSave] créer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [IV] Dossier [IV_dataSave] créer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
     mkdir /home/InstallerVps/IV_tempData
-    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_tempData] créer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
+    echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [IV] Dossier [IV_tempData] créer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
     message "VPS : Ubuntu50 | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Création de l'environnement pour le programme effectuer, Installation de nodeJS v16 !"
     nodeJSInstall
     echo "ready" >> IsReady.txt
