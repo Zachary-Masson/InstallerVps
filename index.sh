@@ -107,7 +107,7 @@ home() {
             pm2 stop IV_panel
             home 
         else
-            
+            echo "Stop Process"
         fi
     else
         message "Bienvenue dans l'Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "En cours de préparation !"
