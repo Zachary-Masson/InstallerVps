@@ -17,6 +17,10 @@ message() {
     echo
 }
 
+nodeJS() {
+
+}
+
 debian() {
     message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour de votre système !"
     apt update
@@ -25,7 +29,7 @@ debian() {
     apt auto-remove
     sleep 3
     message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour effectuer, Installation des dépendances BASIC !"
-    apt install screen htop nano
+    apt install screen htop nano curl
     sleep 3
     message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Installation des dépendances BASIC effectuer, Création de l'environnement pour le programme !"
     mkdir /home/InstallerVps/
@@ -35,6 +39,11 @@ debian() {
     echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_dataSave] créer par le programme ($USER)!" >> logs.txt
     mkdir IV_tempData
     echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > Dossier [IV_tempData] créer par le programme ($USER)!" >> logs.txt
+    cd ./IV_tempData
+    message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Création de l'environnement pour le programme effectuer, Installation de nodeJS v16 !"
+    curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+    apt install -y nodejs
+    sleep 3
 }
 
 ubuntu() {
