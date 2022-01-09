@@ -81,13 +81,13 @@ home() {
         echo "|                                                                             |"
         echo -e "|    - \e[1;34mRe installer\e[0;31m [reinstall] \e[0;m                                              |"
         echo "|                                                                             |"
+        echo -e "|    - \e[1;34mSupprimer\e[0;31m [sup] \e[0;m                                                       |"
+        echo "|                                                                             |"
         echo -e "|    - \e[1;34mDémarrage du panel [web]\e[0;31m [start]\e[0;m                                       |"
         echo "|                                                                             |"
         echo -e "|    - \e[1;34mArrêt du panel [web]\e[0;31m [stop] \e[0;m                                           |"
         echo "|                                                                             |"
-        echo -e "|    - \e[1;34mLogs\e[0;31m [logs] \e[0;m                                           |"
-        echo "|                                                                             |"
-        echo "|    -                                                                        |"
+        echo -e "|    - \e[1;34mLogs\e[0;31m [logs] \e[0;m                                                           |"
         echo "|                                                                             |"
         echo -e "|    - \e[1;34mRetour <- \e[0;31m [retour]\e[0;m                                                    |"
         echo "|_____________________________________________________________________________|"
@@ -100,6 +100,13 @@ home() {
             rm -d -r /home/InstallerVps/
             rm IsReady.txt
             home
+        elif [ $choicessss = "start" ]
+        then
+            pm2 start IV_panel
+            pm2 delete IV_panel
+            rm -d -r /home/InstallerVps/
+            cd ../
+            rm -d -r InstallerVps/
 
         elif [ $choicessss = "start" ]
         then
