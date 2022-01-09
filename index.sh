@@ -23,8 +23,10 @@ debian() {
     apt upgrade -y
     apt full-upgrade -y
     apt auto-remove
+    sleep 3
     message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Mise à jour effectuer, Installation des dépendances BASIC !"
     apt install screen htop nano
+    sleep 3
     message "VPS : Debian | Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Installation des dépendances BASIC effectuer, Création de l'environnement pour le programme !"
     mkdir /home/InstallerVps/
     cd /home/InstallerVps/
