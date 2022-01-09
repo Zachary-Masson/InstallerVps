@@ -77,11 +77,11 @@ home() {
        message "Bienvenue dans l'Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "Panel"
         echo " _____________________________________________________________________________"
         echo "|                                                                             |"
-        echo -e "|    - \e[1;34mRe installer\e[0;31m [reinstall] \e[0;m                                             |"
+        echo -e "|    - \e[1;34mRe installer\e[0;31m [reinstall] \e[0;m                                              |"
         echo "|                                                                             |"
-        echo -e "|    - \e[1;34mDémarrage du panel [web]\e[0;31m [startpanel]\e[0;m                                 |"
+        echo -e "|    - \e[1;34mDémarrage du panel [web]\e[0;31m [start]\e[0;m                                       |"
         echo "|                                                                             |"
-        echo -e "|    - \e[1;34mArrêt du panel [web]\e[0;31m [stoppanel] \e[0;m                                     |"
+        echo -e "|    - \e[1;34mArrêt du panel [web]\e[0;31m [stop] \e[0;m                                           |"
         echo "|                                                                             |"
         echo "|    -                                                                        |"
         echo "|                                                                             |"
@@ -99,14 +99,12 @@ home() {
             rm IsReady.txt
             pm2 start IV_panel
             home
-        elif [ $choicessss = "startpanel" ]
+        elif [ $choicessss = "start" ]
         then
             pm2 start IV_panel
-        
-        elif [$choicessss = "stoppanel"]
+        elif [$choicessss = "stop"]
         then
            pm2 stop IV_panel
-           
         else
             echo "Stop Process"
         fi  
