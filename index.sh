@@ -111,6 +111,7 @@ home() {
 
         elif [ $choicessss = "logs" ]
         then
+            clear
             cat /home/InstallerVps/logs.txt
 
         else
