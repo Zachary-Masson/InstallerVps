@@ -19,11 +19,11 @@ message() {
 
 nodeJSInstall() {
     curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-    apt install -y nodejs
     echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [Nodejs] Installer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
     npm i pm2 -g
     echo "$(date '+%d/%m/%Y') | $(date '+%H:%M') > [PM2] Installer par le programme ($USER)!" >> /home/InstallerVps/logs.txt
     sleep 3
+    npm i --save
 }
 
 debian() {
