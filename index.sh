@@ -89,24 +89,25 @@ home() {
         echo -e "|    - \e[1;34mRetour <- \e[0;31m [retour]\e[0;m                                                    |"
         echo "|_____________________________________________________________________________|"
         echo
-        read -p "$USER > " choice
+        read -p "$USER > " choicessss
 
-        if [$choice = "reinstall"]
+        if [ $choicessss = "reinstall" ]
         then
             rm -d -r /home/InstallerVps/
             rm IsReady.txt
             home
-        elif [$choice = "startpanel"]
+        elif [ $choicessss = "startpanel" ]
         then
             pm2 start IV_panel
-            home 
-        elif [$choice = "startpanel"]
+            home
+        elif [$choicessss = "stoppanel"]
         then
-            pm2 stop IV_panel
-            home 
+           pm2 stop IV_panel
+           home
+        else
         else
             echo "Stop Process"
-        fi
+        fi  
     else
         message "Bienvenue dans l'Installateur de VPS par \e[34mDevNetwork#2103\e[39m", "En cours de préparation !"
         read -p "$USER > Veuillez selectionné votre OS [debian/ubuntu] : " os
