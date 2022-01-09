@@ -94,7 +94,7 @@ home() {
 
         if [ $choicessss = "reinstall" ]
         then
-            pm2 stop IV_panel
+            pm2 delete IV_panel
             rm -d -r /home/InstallerVps/
             rm IsReady.txt
             home
