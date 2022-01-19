@@ -4,15 +4,156 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>InstallerVps</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"
+      integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
   </head>
   <body>
     <script src="/socket.io/socket.io.js"></script>
     <script>
       const socket = io();
       socket.emit("loadPage");
-      socket.on("pageIsLoaded", (op) => {
-        console.log(op);
+      socket.on("pageIsLoaded", (os) => {
+        console.log(os);
+        document.title = `InstallerVPS | ${os.hostname}`;
+      });
+
+      setInterval(() => {
+        socket.emit("getData");
+      }, 2000);
+    </script>
+    <br />
+    CPU
+    <br />
+    <div style="width: 200px; height: 200px; float: left; position: relative">
+      <div
+        id="CPU_USAGE"
+        style="
+          width: 100%;
+          height: 50px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(20%);
+          left: 0;
+          font-size: 30px;
+          margin-top: -20px;
+          color: rgb(150, 150, 150);
+          line-height: 19px;
+          text-align: center;
+          z-index: 999999999999999;
+        "
+      >
+        0%
+      </div>
+      <canvas id="chart-area" width="100" height="100" />
+    </div>
+    <br />
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    MEMORY
+    <br />
+    <div style="width: 200px; height: 200px; float: left; position: relative">
+      <div
+        id="MEMORY_USAGE"
+        style="
+          width: 100%;
+          height: 50px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(20%);
+          left: 0;
+          font-size: 30px;
+          margin-top: -20px;
+          color: rgb(150, 150, 150);
+          line-height: 19px;
+          text-align: center;
+          z-index: 999999999999999;
+        "
+      >
+        0%
+      </div>
+      <canvas id="chart-area-memory" width="100" height="100" />
+    </div>
+
+    <script>
+      const ctx = document.getElementById("chart-area").getContext("2d");
+      const CPU = new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          labels: ["CPU Usage", "Others"],
+          datasets: [
+            {
+              data: [0, 100],
+              backgroundColor: ["rgb(54, 162, 235)", "rgb(230, 230, 230)"],
+              hoverOffset: 4,
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+
+      const CPU_USAGE = document.getElementById("CPU_USAGE");
+      socket.on("emitData", ({ cpu, memory }) => {
+        CPU.data.datasets.forEach((element) => {
+          element.data = [cpu, 100 - cpu];
+        });
+        CPU_USAGE.innerText = `${cpu}%`;
+        CPU.update();
+      });
+
+      const ctx_MEMORY = document
+        .getElementById("chart-area-memory")
+        .getContext("2d");
+      const MEMORY = new Chart(ctx_MEMORY, {
+        type: "doughnut",
+        data: {
+          labels: ["Memory Usage", "Others"],
+          datasets: [
+            {
+              data: [0, 100],
+              backgroundColor: ["rgb(54, 162, 235)", "rgb(230, 230, 230)"],
+              hoverOffset: 4,
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+
+      const MEMORY_USAGE = document.getElementById("MEMORY_USAGE");
+      socket.on("emitData", ({ cpu, memory }) => {
+        MEMORY.data.datasets.forEach((element) => {
+          element.data = [memory, 100 - memory];
+        });
+        MEMORY_USAGE.innerText = `${memory}%`;
+        MEMORY.update();
       });
     </script>
   </body>

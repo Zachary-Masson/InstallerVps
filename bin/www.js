@@ -16,6 +16,8 @@ const WWW = async () => {
   const routes = await fs.readdirSync("./routes");
   const eventSocket = await fs.readdirSync("./socket");
 
+  app.use('/assets/', express.static('./public'))
+
   await routes.forEach((route) =>
     app.use(
       `/${route.split(".")[0] === "index" ? "/" : route.split(".")[0]}`,
