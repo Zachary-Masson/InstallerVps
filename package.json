@@ -1,4 +1,9 @@
 {
+  "author": "DevNetwork <devnetworkytb@outlook.fr>",
+  "description": "Programme pour voir comment ce comporte votre machine (VPS/Dédier), pour installer des programmes (NGINX/MYSQL/etc)",
+  "version": "1.0.1",
+  "license": "Apache02",
+  "main": "main.js",
   "dependencies": {
     "body-parser": "^1.19.1",
     "dotenv": "^10.0.0",
